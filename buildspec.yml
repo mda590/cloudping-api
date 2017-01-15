@@ -14,12 +14,10 @@ phases:
   build:
     commands:
       - echo Start build...
-      - zip -r built_api.zip ./
+      - zip -r built_api *
   post_build:
     commands:
       - echo Build completed...
 artifacts:
-  type: zip
   files:
     - built_api.zip
-  discard-paths: yes
