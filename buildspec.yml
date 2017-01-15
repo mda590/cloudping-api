@@ -10,14 +10,17 @@ phases:
       - echo Install numpy dependencies...
   pre_build:
     commands:
-      - echo Nothing to do...
+      - echo Pre Build...
   build:
     commands:
       - echo Start build...
-      - zip -r built_api *
   post_build:
     commands:
       - echo Build completed...
 artifacts:
+  type: zip
   files:
-    - built_api.zip
+    - lambda.py
+    - requirements.txt
+    - numpy/
+    - numpy-*/
