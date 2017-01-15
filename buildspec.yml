@@ -7,15 +7,15 @@ environment_variables:
 phases:
   install:
     commands:
-      - echo Nothing to do in the install phase...
+      - echo Install numpy dependencies...
+      - pip install numpy --target=./
   pre_build:
     commands:
-      - echo Install numpy dependencies...
-      - pip install numpy --target=./backend-apiFunction
+      - echo Nothing to do...
   build:
     commands:
       - echo Start build...
-      - zip -r built_api.zip ./backend-apiFunction
+      - zip -r built_api.zip ./
   post_build:
     commands:
       - echo Build completed...
