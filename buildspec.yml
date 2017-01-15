@@ -8,7 +8,6 @@ phases:
   install:
     commands:
       - echo Install numpy dependencies...
-      - pip install numpy --target=./
   pre_build:
     commands:
       - echo Nothing to do...
