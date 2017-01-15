@@ -27,5 +27,5 @@ artifacts:
   files:
     - lambda.py
     - requirements.txt
-    - numpy/
-    - numpy-*/
+    - numpy/**/*
+    - numpy-*/**/*
