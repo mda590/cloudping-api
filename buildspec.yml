@@ -23,7 +23,6 @@ phases:
       - ls
 
 artifacts:
-  type: zip
   files:
     - lambda.py
     - requirements.txt
