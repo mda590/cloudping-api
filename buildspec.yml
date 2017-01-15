@@ -8,17 +8,20 @@ phases:
   install:
     commands:
       - echo Install numpy dependencies...
+      - pip install --upgrade pip
       - pip install numpy --target=./
   pre_build:
     commands:
       - echo Pre Build...
+      - ls
   build:
     commands:
       - echo Start build...
   post_build:
     commands:
       - echo Build completed...
-      
+      - ls
+
 artifacts:
   type: zip
   files:
