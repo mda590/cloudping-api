@@ -23,7 +23,7 @@ phases:
   post_build:
     commands:
       - echo Build completed...
-      - ls
+      - aws cloudformation package --template deploy.yml --output-template-file serverless-deploy.yml --s3-bucket mda-cloudformation
 
 artifacts:
   files:

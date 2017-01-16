@@ -7,7 +7,7 @@ Resources:
     Properties:
       Handler: lambda.lambda_handler
       Runtime: python2.7
-      CodeUri: .
+      CodeUri: ./lambda.zip
       Description: ''
       MemorySize: 256
       Timeout: 30
