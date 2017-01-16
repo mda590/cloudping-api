@@ -7,16 +7,18 @@ environment_variables:
 phases:
   install:
     commands:
+      - mkdir lambda
       - echo Install numpy dependencies...
       - pip install --upgrade pip
-      - pip install numpy --target=./
+      - pip install numpy --target=./lambda
   pre_build:
     commands:
       - echo Pre Build...
-      - ls
+      - mv lambda.py ./lambda
   build:
     commands:
       - echo Start build...
+      - zip -r lambda.zip ./lambda
   post_build:
     commands:
       - echo Build completed...
@@ -24,9 +26,6 @@ phases:
 
 artifacts:
   files:
-    - lambda.py
-    - requirements.txt
-    - numpy/**/*
-    - numpy-*/**/*
+    - lambda.zip
     - swagger-2.yml
     - deploy.yml
