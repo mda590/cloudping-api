@@ -29,4 +29,4 @@ artifacts:
   files:
     - lambda.zip
     - swagger-2.yml
-    - deploy.yml
+    - serverless-deploy.yml
