@@ -28,3 +28,5 @@ artifacts:
     - requirements.txt
     - numpy/**/*
     - numpy-*/**/*
+    - swagger-2.yml
+    - deploy.yml

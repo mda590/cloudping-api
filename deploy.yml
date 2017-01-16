@@ -1,16 +1,73 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Transform: AWS::Serverless-2016-10-31
-Description: Outputs the time
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
 Resources:
-  TimeFunction:
-    Type: AWS::Serverless::Function
+  CloudPingApiFunction:
+    Type: 'AWS::Serverless::Function'
     Properties:
-      Handler: index.handler
-      Runtime: nodejs4.3
-      CodeUri: ./
+      Handler: lambda.lambda_handler
+      Runtime: python2.7
+      CodeUri: .
+      Description: ''
+      MemorySize: 256
+      Timeout: 30
+      Role: 'arn:aws:iam::506666621600:role/lambda_basic_execution'                                                                         
       Events:
-        MyTimeApi:
+        AveragesApi:
           Type: Api
           Properties:
-            Path: /TimeResource
+            RestApiId: !Ref CloudPingApiGateway
+            Path: /averages
             Method: GET
+        AveragesDayApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CloudPingApiGateway
+            Path: /averages/day
+            Method: GET
+        AveragesDayNumApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CloudPingApiGateway
+            Path: /averages/day/{numdays}
+            Method: GET
+        AveragesWeekApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CloudPingApiGateway
+            Path: /averages/week
+            Method: GET
+        AveragesWeekNumApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CloudPingApiGateway
+            Path: /averages/week/{numweeks}
+            Method: GET
+        AveragesMonthApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CloudPingApiGateway
+            Path: /averages/month
+            Method: GET
+        AveragesMonthNumApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CloudPingApiGateway
+            Path: /averages/month/{nummonths}
+            Method: GET
+        AveragesQueryApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CloudPingApiGateway
+            Path: /query
+            Method: GET                 
+
+  CloudPingApiGateway:
+    Type: 'AWS::Serverless::Api'
+    Properties:
+      StageName: v1
+      DefinitionUri: swagger-2.yml
+      Variables:
+        LambdaFunctionName: !Ref CloudPingApiFunction
+        LambdaRegion: !Ref 'AWS::Region'
+        LambdaAcctId: !Ref 'AWS::AccountId'

@@ -1,0 +1,40 @@
+CI CD Pipeline 
+
+CodePipeline -> CodeBuild -> CodePipeline
+
+
+1. Check in files GitHub
+2. GitHub kicks off build process
+3. install numpy to current directory
+4. Zip up lambda.py with numpy dependencies
+5. Upload zip to S3
+6. Use SAM to deploy Lambda function, any API updates
+    SAM template should be a part of the repo
+7. CodePipeline executes deployment via SAM
+8. Done
+
+## CodePipeline
+1. Checks files out from GitHub
+2. Puts the entire repo into zip file
+3. Pass to CodeBuild
+
+## CodeBuild
+4. Go to the API directory
+5. Install numpy dependencies
+6. Zip up the contents of the API directory
+7. Save to S3 (build artifacts)
+
+## CodePipeline
+8. Execute the CloudFormation template to deploy Lambda function
+9. Make a test call to API to verify functionality
+10. Done
+
+
+Artifacts required:
+ - buildspec.yml (CodeBuild)
+ - SAM template (CodePipeline)
+ - SAM config input (CodePipeline)
+
+
+ 
+ aws/codebuild/eb-python-2.7-amazonlinux-64:2.1.6
