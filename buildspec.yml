@@ -16,7 +16,7 @@ phases:
       - cp lambda.py lambda/lambda.py
   build:
     commands:
-      - zip lambda.zip lambda/lambda.py lambda/numpy*
+      - zip -r lambda.zip lambda/lambda.py lambda/numpy*
   post_build:
     commands:
       - aws cloudformation package --template deploy.yml --output-template-file serverless-deploy.yml --s3-bucket mda-cloudformation
