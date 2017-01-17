@@ -13,6 +13,12 @@ Resources:
       Timeout: 30
       Role: 'arn:aws:iam::506666621600:role/lambda_basic_execution'                                                                         
       Events:
+        AveragesHello:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CloudPingApiGateway
+            Path: /hello
+            Method: GET
         AveragesApi:
           Type: Api
           Properties:

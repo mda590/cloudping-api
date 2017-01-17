@@ -309,8 +309,8 @@ def lambda_handler(event, context):
     except botocore.exceptions.ClientError as e:
         return error_handler(e)
 
-    if(resourcePath == '/getlatestavgs'):
-        return getLatestAvgs(1, 0, 'GT')
+    if(resourcePath == '/hello'):
+        return "Hello World! API is working!"
 
     elif(resourcePath == '/averages'):
         return getLatestAvgs(1, 0, 'GT')
