@@ -9,14 +9,13 @@ phases:
     commands:
       - mkdir lambda
       - pip install --upgrade pip
-      - pip install numpy --target=./lambda
+      - pip install numpy --target=./
   pre_build:
     commands:
       - yum install zip -y
-      - cp lambda.py lambda/lambda.py
   build:
     commands:
-      - zip -r lambda.zip lambda/lambda.py lambda/numpy*
+      - zip -r lambda.zip lambda.py numpy*/
       - zipinfo lambda.zip
   post_build:
     commands:
