@@ -15,7 +15,7 @@ phases:
     commands:
       - echo Pre Build...
       - yum install zip -y
-      - mv lambda.py ./lambda
+      - mv lambda.py ./lambda/lambda.py
   build:
     commands:
       - echo Start build...
