@@ -8,7 +8,7 @@ info:
     name: Matt Adorjan
     email: matt@mattadorjan.com
     url: https://matt.adorjan.co
-host: "api.cloudping.co"
+host: "api-demo.cloudping.co"
 schemes:
 - "https"
 paths:
