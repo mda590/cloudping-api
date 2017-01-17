@@ -77,3 +77,8 @@ Resources:
         LambdaFunctionName: !Ref CloudPingApiFunction
         LambdaRegion: !Ref 'AWS::Region'
         LambdaAcctId: !Ref 'AWS::AccountId'
+
+Outputs:
+  ApiId:
+    Description: Unique ID of the API endpoint created
+    Value: !Ref CloudPingApiGateway
