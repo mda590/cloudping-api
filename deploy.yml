@@ -60,7 +60,7 @@ Resources:
           Properties:
             RestApiId: !Ref CloudPingApiGateway
             Path: /query
-            Method: GET                 
+            Method: POST                 
 
   CloudPingApiGateway:
     Type: 'AWS::Serverless::Api'

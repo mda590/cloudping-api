@@ -3,7 +3,7 @@ Description: An AWS Serverless Specification template describing your function.
 Resources:
   CloudPingApiFunction:
     Properties:
-      CodeUri: s3://mda-cloudformation/7cbdffda733bff032bfb32a7ae844647
+      CodeUri: s3://mda-cloudformation/7313a5a987888ed400b27fd81cec5d52
       Description: ''
       Events:
         AveragesApi:
@@ -43,7 +43,7 @@ Resources:
           Type: Api
         AveragesQueryApi:
           Properties:
-            Method: GET
+            Method: POST
             Path: /query
             RestApiId:
               Ref: CloudPingApiGateway
@@ -70,7 +70,7 @@ Resources:
     Type: AWS::Serverless::Function
   CloudPingApiGateway:
     Properties:
-      DefinitionUri: s3://mda-cloudformation/7b8fd9203f3370e219f67fa3d8882e60
+      DefinitionUri: s3://mda-cloudformation/25a7ff7c4a0698302614bdb9412d023d
       StageName: v1
       Variables:
         LambdaAcctId:
