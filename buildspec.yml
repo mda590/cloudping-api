@@ -8,21 +8,17 @@ phases:
   install:
     commands:
       - mkdir lambda
-      - echo Install numpy dependencies...
       - pip install --upgrade pip
       - pip install numpy --target=./lambda
   pre_build:
     commands:
-      - echo Pre Build...
       - yum install zip -y
-      - mv lambda.py ./lambda/lambda.py
+      - cp lambda.py lambda/lambda.py
   build:
     commands:
-      - echo Start build...
-      - zip lambda.zip ./lambda/*
+      - zip lambda.zip lambda/*
   post_build:
     commands:
-      - echo Build completed...
       - aws cloudformation package --template deploy.yml --output-template-file serverless-deploy.yml --s3-bucket mda-cloudformation
 
 artifacts:
