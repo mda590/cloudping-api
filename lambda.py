@@ -5,7 +5,7 @@
 #
 # @author Matt Adorjan
 # @email matt@mattadorjan.com
-# @github https://github.com/mda590/cloudping.co
+# @github https://github.com/mda590/cloudping-api
 ############################################################################################
 
 import boto3
