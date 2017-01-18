@@ -30,7 +30,8 @@ def putFailure(jobId, message):
     )
 
 def lambda_handler(event, context):
-    jobId = event['CodePipeline.job']['id'];
+    # Get the current job ID for the CodePipeline job calling this function
+    jobId = event['CodePipeline.job']['id']
     
     # S3 bucket and key are pulled from the data passed from the previous CodePipeline Action
     bucket = event['CodePipeline.job']['data']['inputArtifacts'][0]['location']['s3Location']['bucketName']
