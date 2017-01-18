@@ -4,6 +4,7 @@ numpy*/
 frontend-source/
 backend-apiFunction/swagger/
 deploy.sh
+ignore/
 
 # Compiled Python files
 *.pyc
